@@ -12,13 +12,22 @@
 	<groupId>com.bailemos</groupId>
 	<artifactId>Bailemos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>Bailemos</name>
 	<description>Bailemos. The social network made for dancers.</description>
+
+	<modules>
+		<module>user-microservice</module>
+		<module>event-microservice</module>
+		<module>activity-microservice</module>
+		<module>registry-microservice</module>
+	</modules>
 
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 
+	<!-- TODO delete dependencies if not used ? -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
