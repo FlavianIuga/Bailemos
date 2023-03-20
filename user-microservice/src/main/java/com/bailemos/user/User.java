@@ -1,14 +1,15 @@
 package com.bailemos.user;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.net.URL;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,6 +37,8 @@ public class User {
   private String email;
   private Date dateOfBirth;
   private String location;
+  @OneToMany(cascade = CascadeType.ALL)
+  @JoinColumn(name = "external_profiles_id")
   private List<ExternalProfile> externalProfiles;
 
 }
