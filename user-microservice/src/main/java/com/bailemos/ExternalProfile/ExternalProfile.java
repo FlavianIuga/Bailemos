@@ -1,4 +1,4 @@
-package com.bailemos.user;
+package com.bailemos.ExternalProfile;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

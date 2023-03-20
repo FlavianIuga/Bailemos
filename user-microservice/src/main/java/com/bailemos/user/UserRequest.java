@@ -1,9 +1,8 @@
 package com.bailemos.user;
 
-import java.net.URL;
+import com.bailemos.ExternalProfile.ExternalProfile;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

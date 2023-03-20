@@ -1,5 +1,6 @@
 package com.bailemos.user;
 
+import com.bailemos.ExternalProfile.ExternalProfile;
 import java.util.Date;
 import java.util.List;
 import lombok.AllArgsConstructor;
