@@ -1,5 +1,6 @@
 package com.bailemos.user;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,33 @@ public class UserService {
         .email(userRequest.getEmail())
         .dateOfBirth(userRequest.getDateOfBirth())
         .location(userRequest.getLocation())
-        .danceTypes(userRequest.getDanceTypes())
-//        .externalProfiles(userRequest.getExternalProfiles())
-        .roles(userRequest.getRoles()).build();
+        .externalProfiles(userRequest.getExternalProfiles())
+        .build();
 
     userRepository.save(user);
     log.info("User " + user.getId() + " created.");
+  }
+
+  public UserResponse getUser(Long userId) {
+    User user = userRepository.findById(userId).orElseThrow();
+    return mapToUserResponse(user);
+  }
+
+  public List<UserResponse> getUsers() {
+    List<User> users = userRepository.findAll();
+    return users.stream().map(this::mapToUserResponse).toList();
+  }
+
+  private UserResponse mapToUserResponse(User user) {
+    return UserResponse.builder()
+        .id(user.getId())
+        .handle(user.getHandle())
+        .name(user.getName())
+        .description(user.getDescription())
+        .email(user.getEmail())
+        .dateOfBirth(user.getDateOfBirth())
+        .location(user.getLocation())
+        .externalProfiles(user.getExternalProfiles())
+        .build();
   }
 }

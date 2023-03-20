@@ -36,8 +36,6 @@ public class User {
   private String email;
   private Date dateOfBirth;
   private String location;
-  private List<Integer> danceTypes;//TODO to see
-//  private Map<String, URL> externalProfiles;//TODO rename ? implement latter
-  private List<Integer> roles; // role id's
+  private List<ExternalProfile> externalProfiles;
 
 }

@@ -1,7 +1,9 @@
 package com.bailemos.user;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,18 @@ public class UserController {
   @ResponseStatus(HttpStatus.CREATED)
   public void createUser(@RequestBody UserRequest userRequest) {
     userService.createUser(userRequest);
+  }
+
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public UserResponse getUser(Long userId) {
+    return userService.getUser(userId);
+  }
+
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public List<UserResponse> getUsers() { //TODO add pagination
+    return userService.getUsers();
   }
 
 
