@@ -1,8 +1,5 @@
 package com.bailemos;
 
-import com.bailemos.EventType.EventType;
-import jakarta.persistence.EnumType;
-import java.util.Arrays;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

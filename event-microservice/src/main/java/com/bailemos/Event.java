@@ -1,6 +1,6 @@
 package com.bailemos;
 
-import com.bailemos.EventType.EventType;
+import com.bailemos.event_type.EventType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
