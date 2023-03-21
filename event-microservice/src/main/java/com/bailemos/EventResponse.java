@@ -1,6 +1,5 @@
 package com.bailemos;
 
-import com.bailemos.event_type.EventType;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

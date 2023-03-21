@@ -20,18 +20,21 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event {
+public class Activity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)//TODO which generation type ?
   @Column(name = "id", nullable = false)
   private Long id;
 
+  private Long eventId; // the event this activity belongs to
+  private ActivityType activityType;
   private String name;
   private String description;
-  private Long userId; // the user this event belongs to
-  private EventType eventType;
+  private String location; // more detailed type ?
   private Date startDate;
   private Date endDate;
+  private Integer price; //TODO implement currency
+  private DanceLevel danceLevel;
 
 }
