@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.activity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

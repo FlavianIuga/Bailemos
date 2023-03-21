@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.activity;
 
 public enum DanceLevel {
   BEGINNER("BEGINNER"),

@@ -20,7 +20,7 @@
 		<module>user-microservice</module>
 		<module>event-microservice</module>
 		<module>activity-microservice</module>
-		<module>registry-microservice</module>
+		<module>attendance-microservice</module>
 	</modules>
 
 	<properties>

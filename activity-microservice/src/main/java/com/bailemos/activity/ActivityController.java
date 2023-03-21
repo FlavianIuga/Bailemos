@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.activity;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -12,29 +12,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
-@RequestMapping("/api/event")
+@RequestMapping("/api/activity")
 @RequiredArgsConstructor
-public class EventController {
+public class ActivityController {
 
-  private final EventService eventService;
+  private final ActivityService activityService;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public void createEvent(@RequestBody EventRequest requestEvent) {
-    eventService.createEvent(requestEvent);
+  public void createActivity(@RequestBody ActivityRequest activityRequest) {
+    activityService.createActivity(activityRequest);
   }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public EventResponse getEvent(@RequestParam Long eventId) {
-    return eventService.getEvent(eventId);
+  public ActivityResponse getActivity(@RequestParam Long activityId) {
+    return activityService.getActivity(activityId);
   }
 
   @GetMapping("/all")
   @ResponseStatus(HttpStatus.OK)
-  public List<EventResponse> getEvents() {//TODO add pagination
-    return eventService.getAllEvents();
+  public List<ActivityResponse> getActivities() { //TODO pagination
+    return activityService.getAllActivities();
   }
 
-  //TODO get all event types ?
+  //TODO get all activity types ?
+  //TODO get all dance levels ?
 }

@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.activity;
 
 public enum ActivityType {
   CLASS("CLASS"),

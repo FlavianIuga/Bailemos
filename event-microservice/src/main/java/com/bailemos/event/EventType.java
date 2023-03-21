@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.event;
 
 public enum EventType { //TODO should leave it as String ?
   FESTIVAL("FESTIVAL"),

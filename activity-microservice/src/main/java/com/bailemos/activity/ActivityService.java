@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.activity;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;

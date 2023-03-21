@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.event;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

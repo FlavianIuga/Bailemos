@@ -1,4 +1,4 @@
-package com.bailemos;
+package com.bailemos.event;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventResponse {
+public class EventRequest {
 
-  private Long id;
   private String name;
   private String description;
   private Long userId; // the user this event belongs to
