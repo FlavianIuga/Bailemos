@@ -21,7 +21,8 @@
 		<module>event-microservice</module>
 		<module>activity-microservice</module>
 		<module>attendance-microservice</module>
-	</modules>
+    <module>registration-microservice</module>
+  </modules>
 
 	<properties>
 		<java.version>17</java.version>
