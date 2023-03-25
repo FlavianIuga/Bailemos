@@ -1,5 +1,10 @@
 package com.bailemos.attendance;
 
+import com.bailemos.dto.AttendanceRequest;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -18,6 +23,17 @@ public class AttendanceService {
         .role(attendanceRequest.getRole())
         .build();
     attendanceRepository.save(attendance);
+  }
+
+  public Set<Long> getAttendingUsersPerActivities(List<Long> activityIds) {
+    Set<Long> userIds = new HashSet<>();
+    activityIds.forEach(a -> userIds.addAll(getAttendingUsers(a)));
+    return userIds;
+  }
+
+  public List<Long> getAttendingUsers(Long activityId) {
+    List<Attendance> attendances = attendanceRepository.findByActivityId(activityId);
+    return attendances.stream().map(Attendance::getUserId).toList();
   }
 
 }

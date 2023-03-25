@@ -1,5 +1,7 @@
 package com.bailemos.event;
 
+import com.bailemos.dto.EventRequest;
+import com.bailemos.dto.EventResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,6 @@
-package com.bailemos.attendance;
+package com.bailemos.dto;
 
+import com.bailemos.attendance.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
