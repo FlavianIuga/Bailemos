@@ -17,7 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class EventService {
 
   private final EventRepository eventRepository;
-  private final WebClient webClient;
+  private final WebClient.Builder webClientBuilder;
   ObjectMapper mapper = new ObjectMapper();
 
   public void createEvent(EventRequest eventRequest) {
@@ -45,16 +45,16 @@ public class EventService {
 
   public List<Long> getUsersInAttendance(Long eventId) {
     //get activity id's for the event
-    List<ActivityResponse> eventActivities = Arrays.stream(webClient.get()
-        .uri("http://localhost:8083/api/activity?eventId=" + eventId)
+    List<ActivityResponse> eventActivities = Arrays.stream(webClientBuilder.build().get()
+        .uri("http://activity-microservice/api/activity?eventId=" + eventId)
         .retrieve()
         .bodyToMono(ActivityResponse[].class)
         .block()).toList();
 
     List<String> activityIds = eventActivities.stream().map(a -> a.getId().toString()).toList();
 
-    return Arrays.stream(webClient.get()
-        .uri("http://localhost:8085/api/attendance/users",
+    return Arrays.stream(webClientBuilder.build().get()
+        .uri("http://attendance-microservice/api/attendance/users",
             uriBuilder -> uriBuilder.queryParam("activityIds", activityIds).build())
         .retrieve()
         .bodyToMono(Long[].class)
