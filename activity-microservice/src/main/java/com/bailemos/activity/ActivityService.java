@@ -1,5 +1,7 @@
 package com.bailemos.activity;
 
+import com.bailemos.dto.ActivityRequest;
+import com.bailemos.dto.ActivityResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -38,18 +40,23 @@ public class ActivityService {
     return activities.stream().map(this::mapToActivityResponse).toList();
   }
 
+  public List<ActivityResponse> getActivitiesByEventId(Long eventId) {
+    List<Activity> activities = activityRepository.findAllByEventId(eventId);
+    return activities.stream().map(this::mapToActivityResponse).toList();
+  }
+
   private ActivityResponse mapToActivityResponse(Activity activity) {
     return ActivityResponse.builder()
         .id(activity.getId())
         .eventId(activity.getEventId())
-        .activityType(activity.getActivityType())
+        .activityType(activity.getActivityType().getType())
         .name(activity.getName())
         .description(activity.getDescription())
         .location(activity.getLocation())
         .startDate(activity.getStartDate())
         .endDate(activity.getEndDate())
         .price(activity.getPrice())
-        .danceLevel(activity.getDanceLevel())
+        .danceLevel(activity.getDanceLevel().getDanceLevel())
         .build();
   }
 }

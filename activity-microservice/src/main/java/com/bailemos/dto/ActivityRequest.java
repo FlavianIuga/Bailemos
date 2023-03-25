@@ -1,5 +1,7 @@
-package com.bailemos.activity;
+package com.bailemos.dto;
 
+import com.bailemos.activity.ActivityType;
+import com.bailemos.activity.DanceLevel;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
