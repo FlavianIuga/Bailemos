@@ -1,5 +1,6 @@
 package com.bailemos.attendance;
 
+import com.bailemos.dto.AttendanceActivityResponse;
 import com.bailemos.dto.AttendanceRequest;
 import java.util.List;
 import java.util.Set;
@@ -30,5 +31,12 @@ public class AttendanceController {
   @ResponseStatus(HttpStatus.OK)
   public Set<Long> getAttendingUsers(@RequestParam List<Long> activityIds) {
     return attendanceService.getAttendingUsersPerActivities(activityIds);
+  }
+
+  @GetMapping("/activities") //TODO redesign
+  @ResponseStatus(HttpStatus.OK)
+  public List<AttendanceActivityResponse> getAttendanceActivities(@RequestParam Long eventId,
+      @RequestParam Long userId) {
+    return attendanceService.getAttendanceActivities(eventId, userId);
   }
 }

@@ -18,7 +18,6 @@ public class EventService {
 
   private final EventRepository eventRepository;
   private final WebClient.Builder webClientBuilder;
-  ObjectMapper mapper = new ObjectMapper();
 
   public void createEvent(EventRequest eventRequest) {
     Event event = Event.builder()
