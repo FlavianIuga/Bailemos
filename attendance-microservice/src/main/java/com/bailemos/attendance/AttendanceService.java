@@ -26,9 +26,9 @@ public class AttendanceService {
   }
 
   public Set<Long> getAttendingUsersPerActivities(List<Long> activityIds) {
-    Set<Long> userIds = new HashSet<>();
-    activityIds.forEach(a -> userIds.addAll(getAttendingUsers(a)));
-    return userIds;
+    return Set.copyOf(
+        attendanceRepository.findByActivityIdIn(activityIds).stream().map(Attendance::getUserId)
+            .toList());
   }
 
   public List<Long> getAttendingUsers(Long activityId) {
