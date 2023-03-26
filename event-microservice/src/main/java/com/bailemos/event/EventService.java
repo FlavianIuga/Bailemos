@@ -53,7 +53,7 @@ public class EventService {
     List<String> activityIds = eventActivities.stream().map(a -> a.getId().toString()).toList();
 
     return Arrays.stream(webClientBuilder.build().get()
-        .uri("http://attendance-microservice/api/attendance/users",
+        .uri("http://attendance-microservice/api/attendance/activitiesUsers",
             uriBuilder -> uriBuilder.queryParam("activityIds", activityIds).build())
         .retrieve()
         .bodyToMono(Long[].class)

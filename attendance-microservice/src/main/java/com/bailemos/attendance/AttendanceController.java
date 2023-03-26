@@ -27,10 +27,16 @@ public class AttendanceController {
     attendanceService.createAttendance(attendanceRequest);
   }
 
-  @GetMapping("/users")
+  @GetMapping("/activitiesUsers")
   @ResponseStatus(HttpStatus.OK)
-  public Set<Long> getAttendingUsers(@RequestParam List<Long> activityIds) {
+  public Set<Long> getActivitiesAttendingUsers(@RequestParam List<Long> activityIds) {
     return attendanceService.getAttendingUsersPerActivities(activityIds);
+  }
+
+  @GetMapping("/activityUsers")
+  @ResponseStatus(HttpStatus.OK)
+  public List<Long> getActivityAttendingUsers(@RequestParam Long activityId) {
+    return attendanceService.getAttendingUsers(activityId);
   }
 
   @GetMapping("/activities") //TODO redesign
